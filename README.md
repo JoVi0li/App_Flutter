@@ -1,2 +1,2 @@
-# App_Flutter
-Desenvolvimento de um app com a finalidade de aprendizagem.
+# Flutter
+Desenvolvimento de apps com a finalidade de aprendizagem.
