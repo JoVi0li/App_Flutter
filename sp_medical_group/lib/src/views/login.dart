@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:sp_medical_group/src/controllers/loginController.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
+
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  LoginController loginController = new LoginController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +55,9 @@ class Login extends StatelessWidget {
               width: MediaQuery.of(context).size.width * .90,
               height: 100,
               child: TextField(
+                onChanged: (textSenha) {
+                  print("Esse é o valor do text field de senha: $textSenha");
+                },
                 autofocus: false,
                 decoration: InputDecoration(
                   labelText: "Senha",
@@ -57,7 +68,9 @@ class Login extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                // loginController.efetuarLogin(context, email, textSenha)
+              },
               child: Text("Entrar"),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
