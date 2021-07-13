@@ -8,7 +8,7 @@ class LoginModel {
     final String mensagemErro = "E-mail ou senha inválidos, tente novamente.";
 
     if (email == emailFinal && senha == senhaFinal) {
-      return Navigator.push(context, MaterialPageRoute(builder: (context) => Lista()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Lista()));
     } else {
       return mensagemErro;
     }

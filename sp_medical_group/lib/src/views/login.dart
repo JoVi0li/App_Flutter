@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sp_medical_group/src/controllers/loginController.dart';
+import 'package:sp_medical_group/src/views/list.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -10,6 +11,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   LoginController loginController = new LoginController();
+  late String emailValue;
+  late String senhaValue;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +45,9 @@ class _LoginState extends State<Login> {
               width: MediaQuery.of(context).size.width * .90,
               height: 100,
               child: TextField(
+                onChanged: (textEmail) {
+                  emailValue = textEmail;
+                },
                 autofocus: false,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
@@ -56,9 +62,10 @@ class _LoginState extends State<Login> {
               height: 100,
               child: TextField(
                 onChanged: (textSenha) {
-                  print("Esse é o valor do text field de senha: $textSenha");
+                  senhaValue = textSenha;
                 },
                 autofocus: false,
+                textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   labelText: "Senha",
                   border: OutlineInputBorder(
@@ -69,12 +76,16 @@ class _LoginState extends State<Login> {
             ),
             TextButton(
               onPressed: () {
-                // loginController.efetuarLogin(context, email, textSenha)
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => Lista()),
+                    (route) => false);
               },
               child: Text("Entrar"),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
-                    Color.fromRGBO(131, 190, 223, 1)),
+                  Color.fromRGBO(131, 190, 223, 1),
+                ),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                 fixedSize: MaterialStateProperty.all<Size>(Size(250, 60)),
                 textStyle: MaterialStateProperty.all<TextStyle>(

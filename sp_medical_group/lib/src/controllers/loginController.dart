@@ -5,6 +5,6 @@ class LoginController {
   LoginModel loginModel = new LoginModel();
 
   efetuarLogin(BuildContext context, String email, String senha) {
-    return loginModel.logar(context, email, senha);
+    loginModel.logar(context, email, senha);
   }
 }
