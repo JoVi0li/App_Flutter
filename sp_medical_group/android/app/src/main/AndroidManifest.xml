@@ -2,7 +2,7 @@
     package="com.example.sp_medical_group">
    <application
         android:label="sp_medical_group"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/logo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

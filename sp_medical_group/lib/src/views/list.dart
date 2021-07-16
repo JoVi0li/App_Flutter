@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sp_medical_group/src/models/listModel.dart';
-import 'package:sp_medical_group/src/models/loginModel.dart';
 
 class Lista extends StatefulWidget {
   const Lista({Key? key}) : super(key: key);
