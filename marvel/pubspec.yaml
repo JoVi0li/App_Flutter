@@ -1,0 +1,44 @@
+name: marvel
+description: Uma aplicação movél criada com Flutter.
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  http: ^0.13.3
+  flutter_svg: ^0.22.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/chars/
+    - assets/icons/
+    - assets/movies/
+
+  fonts:
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/gilroy-bold.ttf
+          style: normal
+        - asset: assets/fonts/gilroy-heavy.ttf
+          style: normal
+        - asset: assets/fonts/gilroy-medium.ttf
+          style: normal
+        - asset: assets/fonts/gilroy-regular.ttf
+          style: normal
+        - asset: assets/fonts/gilroy-semibold.ttf
+          style: normal
