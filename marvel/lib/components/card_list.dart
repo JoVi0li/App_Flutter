@@ -45,18 +45,7 @@ class CardList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              ListView.builder(
-                  itemCount: 2,
-                  itemBuilder: (BuildContext content, int index) {
-                    return Row(
-                      children: [
-                        SizedBox(
-                          width: 15,
-                        ),
-                        CaracterCard(),
-                      ],
-                    );
-                  }),
+              CaracterCard(),
             ],
           ),
         ),
