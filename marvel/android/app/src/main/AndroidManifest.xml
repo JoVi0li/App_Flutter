@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.marvel">
    <application
-        android:label="marvel"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Marvel"
+        android:icon="@mipmap/logo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
