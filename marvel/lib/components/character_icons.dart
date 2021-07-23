@@ -7,7 +7,7 @@ class CharacterIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.only(top: 32),
+      padding: EdgeInsets.only(top: 30),
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [

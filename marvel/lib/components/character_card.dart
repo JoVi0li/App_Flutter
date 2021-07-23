@@ -8,13 +8,21 @@ class CharacterCard extends StatelessWidget {
     required this.heroName,
     required this.image,
     required this.description,
+    required this.age,
+    required this.weight,
+    required this.height,
+    required this.universe,
   }) : super(key: key);
 
   final String name;
   final String heroName;
-  final image;
+  final String image;
   final String description;
-  
+  final String age;
+  final String weight;
+  final String height;
+  final String universe;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,7 +32,16 @@ class CharacterCard extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Details(),
+                builder: (context) => Details(
+                  image: this.image,
+                  name: this.name,
+                  heroName: this.heroName,
+                  description: this.description,
+                  age: this.age,
+                  height: this.height,
+                  universe: this.universe,
+                  weight: this.weight,
+                ),
               ));
         },
         onDoubleTap: () {
