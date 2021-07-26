@@ -1,4 +1,4 @@
-import 'package:car_rental/screens/splash/components/body.dart';
+import 'package:car_rental/screens/splash/components/splash_body.dart';
 import 'package:car_rental/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,8 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      body: Body(),
+      body: SplashBody(),
+      
     );
   }
 }

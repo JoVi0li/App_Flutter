@@ -5,17 +5,21 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class Body extends StatefulWidget {
-  const Body({
+class SplashBody extends StatefulWidget {
+  const SplashBody({
     Key? key,
   }) : super(key: key);
 
   @override
-  _BodyState createState() => _BodyState();
+  _SplashBodyState createState() => _SplashBodyState();
 }
 
-class _BodyState extends State<Body> {
+class _SplashBodyState extends State<SplashBody> {
   int currentPage = 0;
+  PageController _pageController = PageController(
+    initialPage: 0,
+  );
+
   List<Map<String, String>> splashData = [
     {
       'title': 'Find Your Vehicle',
@@ -47,6 +51,7 @@ class _BodyState extends State<Body> {
           Expanded(
             flex: 1,
             child: PageView.builder(
+              controller: _pageController,
               onPageChanged: (value) {
                 setState(() {
                   currentPage = value;
@@ -75,18 +80,17 @@ class _BodyState extends State<Body> {
                   ),
                 ),
                 DefaultButton(
-                  
                   press: () {
                     currentPage == 3
-                        ? Navigator.push(
+                        ? Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomeScreen(),
                             ),
-                            // (route) => false
+                            (route) => false
                           )
-                        : ScrollAction();
-                    
+                        : currentPage++;
+                    _pageController.animateToPage(currentPage, duration: Duration(milliseconds: 500), curve: Curves.ease);
                   },
                   text: currentPage == 3 ? 'Get Started' : 'Continue',
                 ),
