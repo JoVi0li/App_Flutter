@@ -18,17 +18,23 @@ class HomeBody extends StatelessWidget {
         child: Column(
           children: [
             HomeContent(
-              color: aOrange,
-              title: 'Small Cars',
+              color: p01,
+              title: 'Cars',
               subTitle: 'Low Price',
               image: 'assets/images/Beep Beep Medium Vehicle.png',
 
             ),
             HomeContent(
-              color: aOrange,
-              title: 'Small Cars',
-              subTitle: 'Low Price',
+              color: p02,
+              title: 'Big Cars',
+              subTitle: 'Medium Price',
               image: 'assets/images/Beep Beep Large Vehicle.png',
+            ),
+            HomeContent(
+              color: p03,
+              title: 'Bikes',
+              subTitle: 'Low Price',
+              image: 'assets/images/Beep Beep Small Vehicle.png',
             ),
           ],
         ),

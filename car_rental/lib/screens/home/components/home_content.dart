@@ -21,72 +21,79 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Card(
-        elevation: 0,
-        child: Container(
-          height: getProportionateScreenHeight(166),
-          width: getProportionateScreenWidth(306),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Stack(
-            children: [
-              Container(
-                alignment: Alignment.topCenter,
-                height: getProportionateScreenHeight(143.5),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), color: color),
-              ),
-              Positioned(
-                left: getProportionateScreenWidth(20),
-                top: getProportionateScreenHeight(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: GoogleFonts.poppins().copyWith(
-                        fontSize: getProportionateScreenWidth(24),
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text(
-                      subTitle,
-                      style: GoogleFonts.poppins().copyWith(
-                        fontSize: getProportionateScreenWidth(14),
-                        color: i06,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+      onTap: () {
+        
+      },
+      child: Padding(
+         padding: const EdgeInsets.only(
+        top: 10,
+        bottom: 25,
+      ),
+        child: Card(
+          elevation: 0,
+          child: Container(
+            height: getProportionateScreenHeight(166),
+            width: getProportionateScreenWidth(306),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  alignment: Alignment.topCenter,
+                  height: getProportionateScreenHeight(143.5),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: color),
                 ),
-              ),
-              Positioned(
-                bottom: getProportionateScreenHeight(42.5),
-                left: getProportionateScreenWidth(20),
-                top: getProportionateScreenHeight(95),
-                right: getProportionateScreenWidth(257.5),
-                // width: getProportionateScreenWidth(28.5),
-                // height: getProportionateScreenHeight(28.5),
-                child: IconButton(
-                  iconSize: 30,
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/icons/star-rating.svg',
-                    width: getProportionateScreenWidth(28.5),
-                    height: getProportionateScreenHeight(28.5),
+                Positioned(
+                  left: getProportionateScreenWidth(20),
+                  top: getProportionateScreenHeight(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: GoogleFonts.poppins().copyWith(
+                          fontSize: getProportionateScreenWidth(24),
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        subTitle,
+                        style: GoogleFonts.poppins().copyWith(
+                          fontSize: getProportionateScreenWidth(14),
+                          color: i06,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-              Positioned(
-                right: 0,
-                bottom: getProportionateScreenHeight(-28.5),
-                width: getProportionateScreenWidth(200),
-                height: getProportionateScreenHeight(124),
-                child: Image.asset(image),
-              ),
-            ],
+                Positioned(
+                  bottom: getProportionateScreenHeight(42.5),
+                  left: getProportionateScreenWidth(20),
+                  top: getProportionateScreenHeight(95),
+                  right: getProportionateScreenWidth(257.5),
+                  child: Container(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/icons/star-rating.svg',
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  top: getProportionateScreenHeight(68),
+                  width: getProportionateScreenWidth(200),
+                  height: getProportionateScreenHeight(124),
+                  child: Image.asset(image),
+                ),
+              ],
+            ),
           ),
         ),
       ),

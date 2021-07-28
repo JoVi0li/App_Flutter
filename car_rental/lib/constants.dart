@@ -20,3 +20,6 @@ const aBlue = Color(0xFFE1FFED);
 const aGreen = Color(0xFFECF0C0);
 const aYellow = Color(0xFFFDEBC9);
 const aOrange = Color(0xFFF5D4C1);
+const p01 = Color(0xFFB67853);
+const p02 = Color(0xFF7EB0AA);
+const p03 = Color(0xFFD7913F);
