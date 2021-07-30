@@ -20,14 +20,14 @@ class HomeBody extends StatelessWidget {
             HomeContent(
               color: p01,
               title: 'Cars',
-              subTitle: 'Low Price',
+              subTitle: 'Medium/High Price',
               image: 'assets/images/Beep Beep Medium Vehicle.png',
 
             ),
             HomeContent(
               color: p02,
               title: 'Big Cars',
-              subTitle: 'Medium Price',
+              subTitle: 'Low Price',
               image: 'assets/images/Beep Beep Large Vehicle.png',
             ),
             HomeContent(

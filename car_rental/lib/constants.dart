@@ -23,3 +23,6 @@ const aOrange = Color(0xFFF5D4C1);
 const p01 = Color(0xFFB67853);
 const p02 = Color(0xFF7EB0AA);
 const p03 = Color(0xFFD7913F);
+const p04 = Color(0xFF60B5F4);
+const p05 = Color(0xFF8382C2);
+const p06 = Color(0xFF2A3640);

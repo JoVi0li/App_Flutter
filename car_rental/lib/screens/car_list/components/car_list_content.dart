@@ -1,12 +1,13 @@
-import 'package:car_rental/constants.dart';
-import 'package:car_rental/screens/car_list/car_list_screen.dart';
-import 'package:car_rental/size_config.dart';
+import 'package:car_rental/screens/car_detail/car_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeContent extends StatelessWidget {
-  const HomeContent({
+import '../../../constants.dart';
+import '../../../size_config.dart';
+
+class CarListContent extends StatelessWidget {
+  const CarListContent({
     Key? key,
     required this.color,
     required this.title,
@@ -14,7 +15,7 @@ class HomeContent extends StatelessWidget {
     required this.image,
   }) : super(key: key);
 
-  final Color color;
+  final String color;
   final String title;
   final String subTitle;
   final String image;
@@ -26,9 +27,7 @@ class HomeContent extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CarListScreen(
-              listTitle: this.title,
-            ),
+            builder: (context) => CarDetailsScreen(),
           ),
         );
       },
@@ -52,7 +51,8 @@ class HomeContent extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   height: getProportionateScreenHeight(143.5),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: color),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(int.parse(color))),
                 ),
                 Positioned(
                   left: getProportionateScreenWidth(20),
