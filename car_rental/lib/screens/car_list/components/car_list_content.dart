@@ -13,12 +13,14 @@ class CarListContent extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.image,
+    required this.description,
   }) : super(key: key);
 
   final String color;
   final String title;
   final String subTitle;
   final String image;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,14 @@ class CarListContent extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CarDetailsScreen(),
+            builder: (context) => CarDetailsScreen(
+              carName: this.title,
+              description: this.description,
+              image: this.image,
+              price: this.subTitle,
+              title: this.title,
+              color: this.color,
+            ),
           ),
         );
       },

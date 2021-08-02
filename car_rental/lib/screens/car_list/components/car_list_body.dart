@@ -100,6 +100,7 @@ class CarListBody extends StatelessWidget {
                 title: listTitle == 'Cars' ? carsData[index]['car_name']! : listTitle == 'Big Cars' ? bigCarsData[index]['car_name']! : bikesData[index]['car_name']!,
                 subTitle: listTitle == 'Cars' ? "\$" + carsData[index]['price']! + '/day' : listTitle == 'Big Cars'? "\$" + bigCarsData[index]['price']! + '/day' : "\$" + bikesData[index]['price']! + '/day',
                 image: listTitle == 'Cars' ? carsData[index]['image']! : listTitle == 'Big Cars' ? bigCarsData[index]['image']! : bikesData[index]['image']!,
+                description: 'Wanna ride the coolest sport car in the world?',
               ),
             );
           },
