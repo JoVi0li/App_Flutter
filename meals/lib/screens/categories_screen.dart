@@ -4,27 +4,18 @@ import 'package:meals/data/dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
-  
 
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold(
-      appBar: AppBar(
-        title:const Text('Meals'),
-        centerTitle: true,
+    return GridView(
+      padding: const EdgeInsets.all(10),
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 200,
+        childAspectRatio: 3 / 2,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20,
       ),
-      body: GridView(
-        padding: const EdgeInsets.all(10),
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent:  200,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
-        ),
-        children:
-            DUMMY_CATEGORIES.map((e) => CategoryItem(category: e)).toList(),
-      ),
+      children: DUMMY_CATEGORIES.map((e) => CategoryItem(category: e)).toList(),
     );
   }
 }
