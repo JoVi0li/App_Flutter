@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:marvel/components/character_card.dart';
 
 class CardList extends StatefulWidget {
-  const CardList({Key? key, required this.cardOne, required this.listName, required this.cardTwo, required this.cardThree}) : super(key: key);
+  const CardList(
+      {Key? key,
+      required this.cardOne,
+      required this.listName,
+      required this.cardTwo,
+      required this.cardThree})
+      : super(key: key);
 
   final String listName;
   final CharacterCard cardOne;
@@ -31,10 +37,11 @@ class _CardListState extends State<CardList> {
                     child: Text(
                       widget.listName,
                       style: TextStyle(
-                          fontFamily: 'Gilroy',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Color.fromRGBO(242, 38, 75, 1)),
+                        fontFamily: 'Gilroy',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Color.fromRGBO(242, 38, 75, 1),
+                      ),
                     ),
                   ),
                   Expanded(
@@ -63,11 +70,7 @@ class _CardListState extends State<CardList> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              widget.cardOne,
-              widget.cardTwo,
-              widget.cardThree
-            ],
+            children: [widget.cardOne, widget.cardTwo, widget.cardThree],
           ),
         ),
       ],
