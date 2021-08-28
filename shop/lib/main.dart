@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
           ),
           headline3: GoogleFonts.titilliumWeb().copyWith(
             color: Colors.white,
+            fontSize: 36
           ),
           headline4: GoogleFonts.titilliumWeb().copyWith(),
         ),
