@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:streaming_now/screens/home/homeScreen.dart';
+import 'package:streaming_now/screens/tab_bar/tab_screen.dart';
 import 'package:streaming_now/utils/constants.dart';
 
 void main() {
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
          ),
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: CustomTabScreen(),
     );
   }
 }

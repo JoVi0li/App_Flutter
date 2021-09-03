@@ -14,7 +14,7 @@ class CustomHighlightCard extends StatelessWidget {
         width: getProportionateScreenWidth(368),
         height: getProportionateScreenHeight(300),
         margin: EdgeInsets.only(
-          right: getProportionateScreenWidth(8),
+          left: getProportionateScreenWidth(8),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
