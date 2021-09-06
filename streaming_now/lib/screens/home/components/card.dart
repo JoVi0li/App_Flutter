@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:streaming_now/screens/details/detailsScreen.dart';
 import 'package:streaming_now/utils/size_config.dart';
 
 class HomeCard extends StatelessWidget {
@@ -9,6 +10,15 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) => DetailsScreen(),
+            settings: RouteSettings(arguments: this.imageUrl),
+          ),
+        );
+      },
       child: Container(
         width: getProportionateScreenWidth(180),
         height: getProportionateScreenHeight(108),
