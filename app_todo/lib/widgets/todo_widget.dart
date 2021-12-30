@@ -1,6 +1,7 @@
 import 'package:app_todo/models/todo_model.dart';
 import 'package:app_todo/widgets/dialog_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class TodoWidget extends StatefulWidget {
@@ -60,28 +61,35 @@ class _TodoWidgetState extends State<TodoWidget> {
           ),
           title: Text(
             widget.todoModel.title,
-            style: const TextStyle(
-              color: Colors.black87,
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
+            style: GoogleFonts.inter(
+              textStyle: const TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 17,
+                letterSpacing: 1,
+              ),
             ),
           ),
           subtitle: Text(
             widget.todoModel.description,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              color: Colors.black54,
-              fontWeight: FontWeight.w400,
-              fontSize: 14,
+            style: GoogleFonts.openSans(
+              textStyle: const TextStyle(
+                color: Colors.black54,
+                fontWeight: FontWeight.w400,
+                fontSize: 14,
+              ),
             ),
           ),
           trailing: Text(
             DateFormat("dd/MM hh:mm").format(widget.todoModel.date),
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
+            style: GoogleFonts.openSans(
+              textStyle: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+              ),
             ),
           ),
           style: ListTileStyle.list,

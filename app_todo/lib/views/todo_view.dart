@@ -1,5 +1,6 @@
 import 'package:app_todo/controllers/todo_controller.dart';
 import 'package:app_todo/models/todo_model.dart';
+import 'package:app_todo/widgets/modal_widget.dart';
 import 'package:app_todo/widgets/todo_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,14 @@ class _TodoViewState extends State<TodoView> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return const ModalWidget();
+            },
+          );
+        },
         child: const Icon(
           Icons.add_circle_outline_rounded,
           color: Colors.blueGrey,
