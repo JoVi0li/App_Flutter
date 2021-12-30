@@ -15,10 +15,11 @@ class TodoController extends ChangeNotifier {
       title: 'Teste3',
       description: 'Descrição de teste3',
     ),
+
   ];
 
   List<TodoModel> readAllTodo() {
-    return [...items];
+    return items;
   }
 
   TodoModel readOneTodo(int id) {

@@ -1,8 +1,8 @@
 import 'package:app_todo/controllers/todo_controller.dart';
-import 'package:app_todo/models/todo_model.dart';
 import 'package:app_todo/widgets/modal_widget.dart';
 import 'package:app_todo/widgets/todo_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TodoView extends StatefulWidget {
   const TodoView({Key? key}) : super(key: key);
@@ -12,14 +12,9 @@ class TodoView extends StatefulWidget {
 }
 
 class _TodoViewState extends State<TodoView> {
-  late TodoController todoController;
-  late List<TodoModel> todos;
-
   @override
   void initState() {
     super.initState();
-    todoController = TodoController();
-    todos = todoController.readAllTodo();
   }
 
   @override
@@ -39,11 +34,15 @@ class _TodoViewState extends State<TodoView> {
         ),
         centerTitle: true,
       ),
-      body: ListView.builder(
-        itemCount: todos.length,
-        itemBuilder: (BuildContext context, int index) {
-          return TodoWidget(
-            todoModel: todos[index],
+      body: Consumer<TodoController>(
+        builder: (context, todo, child) {
+          return ListView.builder(
+            itemCount: todo.readAllTodo().length,
+            itemBuilder: (BuildContext context, int index) {
+              return TodoWidget(
+                todoModel: todo.readAllTodo()[index],
+              );
+            },
           );
         },
       ),
