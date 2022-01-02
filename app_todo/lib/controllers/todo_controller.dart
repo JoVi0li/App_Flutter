@@ -32,11 +32,8 @@ class TodoController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void deleteTodo(int id) {
-    var todoSearched =
-        [...items].where((element) => element.id == id) as TodoModel;
-
-    items.remove(todoSearched);
+  void deleteTodo(int index) {
+    items.removeAt(index);
 
     notifyListeners();
   }

@@ -175,6 +175,7 @@ class _ModalWidgetState extends State<ModalWidget> {
                             _descriptionTextEditingController.value.text,
                       );
                       _todoProvider.createTodo(todoModel);
+                      Navigator.pop(context);
                     }
                   },
                   child: Text(

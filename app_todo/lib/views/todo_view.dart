@@ -39,8 +39,39 @@ class _TodoViewState extends State<TodoView> {
           return ListView.builder(
             itemCount: todo.readAllTodo().length,
             itemBuilder: (BuildContext context, int index) {
-              return TodoWidget(
-                todoModel: todo.readAllTodo()[index],
+              return Dismissible(
+                key: Key(todo.readAllTodo()[index].id.toString()),
+                secondaryBackground: Container(
+                  padding: const EdgeInsets.all(30),
+                  child: const Icon(
+                    Icons.delete_outline_outlined,
+                    color: Colors.white,
+                  ),
+                  alignment: Alignment.centerRight,
+                  color: Colors.red,
+                ),
+                background: Container(
+                  child: const Icon(
+                    Icons.archive_outlined,
+                    color: Colors.white,
+                  ),
+                  padding: const EdgeInsets.all(30),
+                  alignment: Alignment.centerLeft,
+                  color: Colors.green,
+                ),
+                child: TodoWidget(
+                  todoModel: todo.readAllTodo()[index],
+                ),
+                onDismissed: (direction) {
+                  switch (direction) {
+                    case DismissDirection.endToStart:
+                      todo.deleteTodo(index);
+                      break;
+                    case DismissDirection.startToEnd:
+                      break;
+                    default:
+                  }
+                },
               );
             },
           );
