@@ -43,6 +43,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             showDialog(
+              useSafeArea: true,
+              barrierColor: surfaceColor.withOpacity(0.5),
               context: context,
               builder: (BuildContext ctx) {
                 return const CustomModalWidget();

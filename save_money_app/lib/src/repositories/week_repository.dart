@@ -13,20 +13,27 @@ class WeekRepository {
   }
 
   _initRepository() async {
-    await _getWeekList();
+    await getWeekList();
   }
 
-  _getWeekList() async {
+  getWeekList() async {
     db = await DB.instance.database;
 
     List week = await db.query('week', limit: 52);
 
-    _weekModelList = week
-        .map((e) => WeekModel(
-              id: e['id'],
-              weekEnum: e['weekEnum'],
-              value: e['value'],
-            ))
-        .toList();
+    _weekModelList = week.map((e) => WeekModel.fromJson(e)).toList();
   }
+
+  insertWeekList(WeekModel weekModel) async {
+    try {
+      db = await DB.instance.database;
+      db.transaction((txn) async {
+        await txn.insert('week', weekModel.toJson());
+      });
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+
 }
