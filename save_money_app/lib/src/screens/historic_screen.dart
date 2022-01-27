@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:save_money_app/src/states/week/error_week_state.dart';
 import 'package:save_money_app/src/states/week/initial_week_state.dart';
 import 'package:save_money_app/src/states/week/loading_week_state.dart';
-import 'package:save_money_app/src/states/week/success_week_state.dart';
+import 'package:save_money_app/src/states/week/success_historic_week_state.dart';
 import 'package:save_money_app/src/stores/week_store.dart';
-import 'package:save_money_app/src/utils/constants.dart';
 import 'package:save_money_app/src/widgets/custom_card.dart';
 import 'package:save_money_app/src/widgets/custom_screen_title_widget.dart';
 
@@ -26,6 +24,7 @@ class _HistoricScreenState extends State<HistoricScreen> {
     weekStore = context.read<WeekStore>();
     weekStore.retriverWeekModel();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class _HistoricScreenState extends State<HistoricScreen> {
                       return const CircularProgressIndicator();
                     } else if (value is ErrorWeekState) {
                       return Text(value.message);
-                    } else if (value is SuccessWeekState) {
+                    } else if (value is SuccessHistoricWeekState) {
                       return ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: value.value.length,
@@ -77,27 +76,6 @@ class _HistoricScreenState extends State<HistoricScreen> {
                   },
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Total economizado:',
-                    style: GoogleFonts.outfit().copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal,
-                      color: primaryColor.withOpacity(0.7),
-                    ),
-                  ),
-                  Text(
-                    'R\$ 10.576,98',
-                    style: GoogleFonts.outfit().copyWith(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: primaryColor,
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
         ),

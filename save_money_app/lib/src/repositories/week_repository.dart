@@ -35,5 +35,22 @@ class WeekRepository {
     }
   }
 
+  getTotal() async {
+    try {
+      db = await DB.instance.database;
+      List list = await db.query('week');
 
+      double total = 0;
+
+      for (var element in list) {
+        total = total + element['value'];
+      }
+
+      return total;
+    } catch (e) {
+
+      return e.toString();
+
+    }
+  }
 }

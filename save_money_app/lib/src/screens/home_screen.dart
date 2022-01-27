@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:save_money_app/src/states/week/error_week_state.dart';
+import 'package:save_money_app/src/states/week/initial_week_state.dart';
+import 'package:save_money_app/src/states/week/loading_week_state.dart';
+import 'package:save_money_app/src/states/week/success_home_week_state.dart';
+import 'package:save_money_app/src/stores/week_store.dart';
 import 'package:save_money_app/src/utils/constants.dart';
 import 'package:save_money_app/src/widgets/custom_screen_title_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late final WeekStore weekStore;
+
+  @override
+  void initState() {
+    super.initState();
+    weekStore = context.read<WeekStore>();
+    weekStore.retriverTotal();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,16 +60,52 @@ class HomeScreen extends StatelessWidget {
                         strokeWidth: 24,
                         color: secondaryColor,
                         backgroundColor: surfaceColor,
-                        value: .1,
+                        value: .0,
                       ),
                     ),
-                    Text(
-                      'R\$ 10.576,98',
-                      style: GoogleFonts.outfit().copyWith(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        color: primaryColor,
-                      ),
+                    ValueListenableBuilder(
+                      valueListenable: weekStore,
+                      builder: (context, value, child) {
+                        if (value is InitialWeekState) {
+                          return Text(
+                            '0',
+                            style: GoogleFonts.outfit().copyWith(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: primaryColor,
+                            ),
+                          );
+                        } else if (value is SuccessHomeWeekState) {
+                          return Text(
+                            value.value.toString(),
+                            style: GoogleFonts.outfit().copyWith(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: primaryColor,
+                            ),
+                          );
+                        } else if (value is LoadingWeekState) {
+                          return const CircularProgressIndicator();
+                        } else if (value is ErrorWeekState) {
+                          return Text(
+                            'Erro ao tentar recuperar o saldo',
+                            style: GoogleFonts.outfit().copyWith(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: primaryColor,
+                            ),
+                          );
+                        } else {
+                          return Text(
+                            '1',
+                            style: GoogleFonts.outfit().copyWith(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: primaryColor,
+                            ),
+                          );
+                        }
+                      },
                     ),
                   ],
                 ),
